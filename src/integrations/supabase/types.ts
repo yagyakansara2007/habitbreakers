@@ -14,7 +14,161 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      daily_reflections: {
+        Row: {
+          ai_motivation: string | null
+          ai_tips: string | null
+          challenges: string | null
+          created_at: string
+          gratitude: string | null
+          id: string
+          mood: string | null
+          reflection_date: string
+          tomorrow_goals: string | null
+          updated_at: string
+          user_id: string
+          wins: string | null
+        }
+        Insert: {
+          ai_motivation?: string | null
+          ai_tips?: string | null
+          challenges?: string | null
+          created_at?: string
+          gratitude?: string | null
+          id?: string
+          mood?: string | null
+          reflection_date?: string
+          tomorrow_goals?: string | null
+          updated_at?: string
+          user_id: string
+          wins?: string | null
+        }
+        Update: {
+          ai_motivation?: string | null
+          ai_tips?: string | null
+          challenges?: string | null
+          created_at?: string
+          gratitude?: string | null
+          id?: string
+          mood?: string | null
+          reflection_date?: string
+          tomorrow_goals?: string | null
+          updated_at?: string
+          user_id?: string
+          wins?: string | null
+        }
+        Relationships: []
+      }
+      habit_completions: {
+        Row: {
+          completed_at: string
+          count: number
+          habit_id: string
+          id: string
+          notes: string | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          count?: number
+          habit_id: string
+          id?: string
+          notes?: string | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          count?: number
+          habit_id?: string
+          id?: string
+          notes?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "habit_completions_habit_id_fkey"
+            columns: ["habit_id"]
+            isOneToOne: false
+            referencedRelation: "habits"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      habits: {
+        Row: {
+          category: string
+          color: string | null
+          created_at: string
+          description: string | null
+          frequency: string
+          icon: string | null
+          id: string
+          is_active: boolean
+          reminder_time: string | null
+          target_count: number
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          frequency?: string
+          icon?: string | null
+          id?: string
+          is_active?: boolean
+          reminder_time?: string | null
+          target_count?: number
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          frequency?: string
+          icon?: string | null
+          id?: string
+          is_active?: boolean
+          reminder_time?: string | null
+          target_count?: number
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
