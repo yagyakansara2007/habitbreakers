@@ -6,7 +6,6 @@ const footerLinks = [
     links: [
       { label: "Features", href: "/features" },
       { label: "Templates", href: "/templates" },
-      { label: "Pricing", href: "/pricing" },
       { label: "How It Works", href: "/how-it-works" },
     ],
   },
@@ -15,7 +14,7 @@ const footerLinks = [
     links: [
       { label: "About", href: "/about" },
       { label: "Why HabitFlow", href: "/why-habitflow" },
-      { label: "Contact", href: "/about" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {

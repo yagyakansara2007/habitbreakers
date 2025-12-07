@@ -1,1 +1,7 @@
 project_id = "pkxewfdbawjodohupfmh"
+
+[functions.generate-motivation]
+verify_jwt = true
+
+[functions.habit-coach]
+verify_jwt = false
