@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      contact_submissions: {
+        Row: {
+          created_at: string
+          description: string
+          details: string | null
+          email: string
+          id: string
+          name: string
+          phone: string | null
+          preferred_reply: string | null
+          request_type: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          details?: string | null
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+          preferred_reply?: string | null
+          request_type: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          details?: string | null
+          email?: string
+          id?: string
+          name?: string
+          phone?: string | null
+          preferred_reply?: string | null
+          request_type?: string
+        }
+        Relationships: []
+      }
       daily_reflections: {
         Row: {
           ai_motivation: string | null
@@ -94,6 +154,39 @@ export type Database = {
           },
         ]
       }
+      habit_templates: {
+        Row: {
+          category: string
+          color: string | null
+          created_at: string
+          description: string | null
+          habits: Json
+          icon: string | null
+          id: string
+          title: string
+        }
+        Insert: {
+          category?: string
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          habits?: Json
+          icon?: string | null
+          id?: string
+          title: string
+        }
+        Update: {
+          category?: string
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          habits?: Json
+          icon?: string | null
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
       habits: {
         Row: {
           category: string
@@ -166,6 +259,42 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      user_history: {
+        Row: {
+          blockers: string[] | null
+          created_at: string
+          id: string
+          mood_trend: Json | null
+          motivation_triggers: string[] | null
+          patterns: Json | null
+          updated_at: string
+          user_id: string
+          weekly_summary: Json | null
+        }
+        Insert: {
+          blockers?: string[] | null
+          created_at?: string
+          id?: string
+          mood_trend?: Json | null
+          motivation_triggers?: string[] | null
+          patterns?: Json | null
+          updated_at?: string
+          user_id: string
+          weekly_summary?: Json | null
+        }
+        Update: {
+          blockers?: string[] | null
+          created_at?: string
+          id?: string
+          mood_trend?: Json | null
+          motivation_triggers?: string[] | null
+          patterns?: Json | null
+          updated_at?: string
+          user_id?: string
+          weekly_summary?: Json | null
         }
         Relationships: []
       }
