@@ -123,6 +123,7 @@ export type Database = {
         Row: {
           completed_at: string
           count: number
+          duration_minutes: number | null
           habit_id: string
           id: string
           notes: string | null
@@ -131,6 +132,7 @@ export type Database = {
         Insert: {
           completed_at?: string
           count?: number
+          duration_minutes?: number | null
           habit_id: string
           id?: string
           notes?: string | null
@@ -139,6 +141,7 @@ export type Database = {
         Update: {
           completed_at?: string
           count?: number
+          duration_minutes?: number | null
           habit_id?: string
           id?: string
           notes?: string | null
@@ -295,6 +298,33 @@ export type Database = {
           updated_at?: string
           user_id?: string
           weekly_summary?: Json | null
+        }
+        Relationships: []
+      }
+      user_quotes: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          mood: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          mood?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          mood?: string | null
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
