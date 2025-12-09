@@ -1,7 +1,8 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { WeeklyProgressChart } from './WeeklyProgressChart';
+import { WeeklyReport } from './WeeklyReport';
+import { MonthlyReport } from './MonthlyReport';
 import { DailySuggestionBox } from './DailySuggestionBox';
 import { useHabits } from '@/hooks/useHabits';
 import { useReflections } from '@/hooks/useReflections';
@@ -87,9 +88,10 @@ export function ProgressDashboard({ open, onOpenChange }: ProgressDashboardProps
         </DialogHeader>
 
         <Tabs defaultValue="overview" className="flex-1 overflow-hidden flex flex-col">
-          <TabsList className="grid grid-cols-4">
+          <TabsList className="grid grid-cols-5">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="weekly">Weekly</TabsTrigger>
+            <TabsTrigger value="monthly">Monthly</TabsTrigger>
             <TabsTrigger value="calendar">Calendar</TabsTrigger>
             <TabsTrigger value="insights">Insights</TabsTrigger>
           </TabsList>
@@ -154,8 +156,13 @@ export function ProgressDashboard({ open, onOpenChange }: ProgressDashboardProps
               <DailySuggestionBox />
             </TabsContent>
 
-            <TabsContent value="weekly" className="mt-4">
+            <TabsContent value="weekly" className="mt-4 space-y-4">
               <WeeklyProgressChart />
+              <WeeklyReport />
+            </TabsContent>
+
+            <TabsContent value="monthly" className="mt-4">
+              <MonthlyReport />
             </TabsContent>
 
             <TabsContent value="calendar" className="mt-4">
