@@ -3,9 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useReflections } from '@/hooks/useReflections';
-import { Sparkles, Heart, Trophy, Mountain, Target, Loader2 } from 'lucide-react';
+import { Sparkles, Heart, Trophy, Mountain, Target, Loader2, History } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useHabits } from '@/hooks/useHabits';
+import { PastReflectionsModal } from './PastReflectionsModal';
 
 const MOODS = [
   { emoji: '😊', label: 'Great', value: 'great' },
@@ -26,6 +27,7 @@ export function DailyReflection() {
   const [tomorrowGoals, setTomorrowGoals] = useState('');
   const [saving, setSaving] = useState(false);
   const [loadingMotivation, setLoadingMotivation] = useState(false);
+  const [showPastReflections, setShowPastReflections] = useState(false);
   const [motivation, setMotivation] = useState<{
     motivation: string;
     tips: string[];
@@ -115,10 +117,26 @@ export function DailyReflection() {
           <Sparkles className="w-5 h-5 text-primary" />
           <h2 className="text-xl font-bold text-foreground">Daily Reflection</h2>
         </div>
-        <span className="text-sm text-muted-foreground">
-          {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}
-        </span>
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowPastReflections(true)}
+            className="gap-2 text-muted-foreground hover:text-foreground"
+          >
+            <History className="w-4 h-4" />
+            Past Entries
+          </Button>
+          <span className="text-sm text-muted-foreground">
+            {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}
+          </span>
+        </div>
       </div>
+
+      <PastReflectionsModal 
+        open={showPastReflections} 
+        onOpenChange={setShowPastReflections} 
+      />
 
       {/* Mood Selector */}
       <div className="space-y-2">
