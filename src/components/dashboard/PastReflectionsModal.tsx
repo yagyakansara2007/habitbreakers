@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useReflections, DailyReflection } from '@/hooks/useReflections';
-import { History, Heart, Trophy, Mountain, Target, Sparkles, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
+import { History, Heart, Trophy, Mountain, Target, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
 import { format } from 'date-fns';
 
 const MOOD_MAP: Record<string, { emoji: string; label: string }> = {
@@ -89,24 +89,6 @@ function ReflectionCard({ reflection }: ReflectionCardProps) {
             </div>
           )}
 
-          {reflection.ai_motivation && (
-            <div className="mt-3 p-3 bg-primary/5 rounded-xl border border-primary/20">
-              <div className="flex items-center gap-2 text-sm font-medium text-primary mb-2">
-                <Sparkles className="w-4 h-4" />
-                AI Motivation
-              </div>
-              <p className="text-sm text-foreground">
-                {(() => {
-                  try {
-                    const parsed = JSON.parse(reflection.ai_motivation);
-                    return parsed.motivation || reflection.ai_motivation;
-                  } catch {
-                    return reflection.ai_motivation;
-                  }
-                })()}
-              </p>
-            </div>
-          )}
         </div>
       )}
     </div>
