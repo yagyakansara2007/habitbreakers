@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useReflections, DailyReflection } from '@/hooks/useReflections';
 import { History, Heart, Trophy, Mountain, Target, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
@@ -101,7 +100,14 @@ interface PastReflectionsModalProps {
 }
 
 export function PastReflectionsModal({ open, onOpenChange }: PastReflectionsModalProps) {
-  const { reflections, loading } = useReflections();
+  const { reflections, loading, refetch } = useReflections();
+
+  // Refetch when modal opens
+  useEffect(() => {
+    if (open) {
+      refetch();
+    }
+  }, [open]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
