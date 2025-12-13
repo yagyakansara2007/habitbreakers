@@ -8,7 +8,6 @@ import { ProgressCard } from '@/components/dashboard/ProgressCard';
 import { DailyReflection } from '@/components/dashboard/DailyReflection';
 import { WeeklyProgressChart } from '@/components/dashboard/WeeklyProgressChart';
 import { DailySuggestionBox } from '@/components/dashboard/DailySuggestionBox';
-import { MoodDescriptionBox } from '@/components/dashboard/MoodDescriptionBox';
 import { ProgressDashboard } from '@/components/dashboard/ProgressDashboard';
 import { Button } from '@/components/ui/button';
 import { LogOut, Plus, BarChart3, Loader2 } from 'lucide-react';
@@ -121,7 +120,6 @@ export default function Dashboard() {
 
           <div className="space-y-6">
             <DailySuggestionBox />
-            <MoodDescriptionBox />
             <DailyReflection />
           </div>
         </div>
