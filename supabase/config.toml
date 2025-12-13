@@ -4,4 +4,4 @@ project_id = "pkxewfdbawjodohupfmh"
 verify_jwt = true
 
 [functions.habit-coach]
-verify_jwt = false
+verify_jwt = true
