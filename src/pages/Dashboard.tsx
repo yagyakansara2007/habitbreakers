@@ -5,7 +5,6 @@ import { useHabits } from '@/hooks/useHabits';
 import { HabitCard } from '@/components/dashboard/HabitCard';
 import { AddHabitDialog } from '@/components/dashboard/AddHabitDialog';
 import { ProgressCard } from '@/components/dashboard/ProgressCard';
-import { DailyReflection } from '@/components/dashboard/DailyReflection';
 import { WeeklyProgressChart } from '@/components/dashboard/WeeklyProgressChart';
 import { DailySuggestionBox } from '@/components/dashboard/DailySuggestionBox';
 import { ProgressDashboard } from '@/components/dashboard/ProgressDashboard';
@@ -120,7 +119,6 @@ export default function Dashboard() {
 
           <div className="space-y-6">
             <DailySuggestionBox />
-            <DailyReflection />
           </div>
         </div>
       </main>
