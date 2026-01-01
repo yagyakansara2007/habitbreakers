@@ -6,7 +6,6 @@ import { HabitCard } from '@/components/dashboard/HabitCard';
 import { AddHabitDialog } from '@/components/dashboard/AddHabitDialog';
 import { ProgressCard } from '@/components/dashboard/ProgressCard';
 import { WeeklyProgressChart } from '@/components/dashboard/WeeklyProgressChart';
-import { DailySuggestionBox } from '@/components/dashboard/DailySuggestionBox';
 import { DailyReflection } from '@/components/dashboard/DailyReflection';
 import { ProgressDashboard } from '@/components/dashboard/ProgressDashboard';
 import { Button } from '@/components/ui/button';
@@ -37,7 +36,7 @@ export default function Dashboard() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-lavender flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
       </div>
     );
@@ -46,16 +45,16 @@ export default function Dashboard() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-soft">
-      <header className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
+    <div className="min-h-screen bg-lavender text-primary">
+      <header className="bg-lavender/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-hero flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">H</span>
             </div>
             <div>
-              <h1 className="font-bold text-xl text-foreground">HabitFlow</h1>
-              <p className="text-sm text-muted-foreground">Welcome back! 👋</p>
+              <h1 className="font-bold text-xl text-primary">HabitFlow</h1>
+              <p className="text-sm text-primary/70">Welcome back! 👋</p>
             </div>
           </div>
           
@@ -80,8 +79,8 @@ export default function Dashboard() {
 
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-foreground">Today's Habits</h2>
-                <span className="text-sm text-muted-foreground">{completedCount}/{habits.length} completed</span>
+                <h2 className="text-xl font-bold text-primary">Today's Habits</h2>
+                <span className="text-sm text-primary/70">{completedCount}/{habits.length} completed</span>
               </div>
 
               {habitsLoading ? (
@@ -95,8 +94,8 @@ export default function Dashboard() {
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Plus className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">No habits yet</h3>
-                  <p className="text-muted-foreground mb-4">Start building better habits today!</p>
+                  <h3 className="font-semibold text-primary mb-2">No habits yet</h3>
+                  <p className="text-primary/70 mb-4">Start building better habits today!</p>
                   <AddHabitDialog>
                     <Button variant="hero">Create Your First Habit</Button>
                   </AddHabitDialog>
@@ -119,7 +118,6 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-6">
-            <DailySuggestionBox />
             <DailyReflection />
           </div>
         </div>
